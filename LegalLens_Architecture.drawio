@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" modified="2026-07-30T21:00:00.000Z" agent="Mozilla/5.0" version="21.6.8" type="device">
+  <diagram id="legallens-architecture" name="LegalLens Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title Banner -->
+        <mxCell id="title_banner" value="&lt;div style=&quot;font-size: 18px; font-weight: bold; color: #FFFFFF; text-align: center;&quot;&gt;LegalLens – AI-Powered Contract Analysis and Legal Assistant&lt;/div&gt;&lt;div style=&quot;font-size: 12px; color: #CBD5E1; text-align: center; margin-top: 4px;&quot;&gt;Software Architecture Diagram | System Data Flow &amp;amp; Infrastructure Overview&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#1E293B;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="25" width="1089" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Cloud Deployment Boundary (Render / AWS Cloud) -->
+        <mxCell id="cloud_deployment" value="&lt;div style=&quot;font-size: 14px; font-weight: bold; color: #3730A3;&quot;&gt;☁️ Cloud Deployment (Render or AWS Cloud)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#EEF2FF;strokeColor=#4F46E5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=15;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="110" width="430" height="580" as="geometry" />
+        </mxCell>
+
+        <!-- Docker Container (Hosts Backend) -->
+        <mxCell id="docker_container" value="&lt;div style=&quot;font-size: 13px; font-weight: bold; color: #0369A1;&quot;&gt;🐳 Docker Container&lt;/div&gt;&lt;div style=&quot;font-size: 10px; color: #0284C7;&quot;&gt;(Backend Host Environment)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 3;fillColor=#F0F9FF;strokeColor=#0284C7;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=12;spacingTop=10;" vertex="1" parent="cloud_deployment">
+          <mxGeometry x="25" y="45" width="380" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- Component 1: User -->
+        <mxCell id="user_node" value="&lt;div style=&quot;font-size: 14px; font-weight: bold; color: #1E293B;&quot;&gt;User&lt;/div&gt;&lt;div style=&quot;font-size: 11px; color: #64748B; margin-top: 4px;&quot;&gt;Web Browser / Client&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="140" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Component 2: Frontend (React Web Application) -->
+        <mxCell id="frontend_node" value="&lt;div style=&quot;font-size: 14px; font-weight: bold; color: #1E3A8A;&quot;&gt;Frontend&lt;/div&gt;&lt;div style=&quot;font-size: 12px; font-weight: bold; color: #2563EB;&quot;&gt;(React Web Application)&lt;/div&gt;&lt;hr style=&quot;border:0.5px solid #BFDBFE;margin:6px 0;&quot;/&gt;&lt;div style=&quot;font-size: 11px; color: #334155; text-align: left;&quot;&gt;• UI Dashboard &amp;amp; Controls&lt;br/&gt;• Upload Contract (PDF/DOCX)&lt;br/&gt;• Analysis &amp;amp; AI Chat Interface&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="220" width="200" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Component 3: Backend (FastAPI REST API) inside Docker Container -->
+        <mxCell id="backend_node" value="&lt;div style=&quot;font-size: 14px; font-weight: bold; color: #14532D;&quot;&gt;Backend&lt;/div&gt;&lt;div style=&quot;font-size: 12px; font-weight: bold; color: #16A34A;&quot;&gt;(FastAPI REST API)&lt;/div&gt;&lt;hr style=&quot;border:0.5px solid #BBF7D0;margin:6px 0;&quot;/&gt;&lt;div style=&quot;font-size: 11px; color: #1E293B; text-align: left;&quot;&gt;• REST API Endpoints&lt;br/&gt;• JWT Auth &amp;amp; OAuth Handler&lt;br/&gt;• Analysis &amp;amp; Risk Engine&lt;br/&gt;• OpenAI Integration Service&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;strokeWidth=2;shadow=1;" vertex="1" parent="docker_container">
+          <mxGeometry x="25" y="45" width="330" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- Component 6: PostgreSQL Database inside Cloud Deployment -->
+        <mxCell id="postgres_node" value="&lt;div style=&quot;font-size: 13px; font-weight: bold; color: #78350F;&quot;&gt;PostgreSQL Database&lt;/div&gt;&lt;hr style=&quot;border:0.5px solid #FDE68A;margin:4px 0;&quot;/&gt;&lt;div style=&quot;font-size: 11px; color: #92400E; text-align: left;&quot;&gt;• User Accounts &amp;amp; Auth Data&lt;br/&gt;• Contract History Metadata&lt;br/&gt;• Analysis Results (Summaries,&lt;br/&gt;  Risk &amp;amp; Fairness Scores)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;shadow=1;" vertex="1" parent="cloud_deployment">
+          <mxGeometry x="50" y="345" width="330" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- Component 4: Google OAuth Authentication -->
+        <mxCell id="google_oauth_node" value="&lt;br/&gt;&lt;div style=&quot;font-size: 13px; font-weight: bold; color: #991B1B;&quot;&gt;Google OAuth&lt;/div&gt;&lt;div style=&quot;font-size: 11px; color: #B91C1C;&quot;&gt;Authentication Service&lt;br/&gt;(Identity Provider)&lt;/div&gt;" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="130" width="200" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Component 5: OpenAI API for contract analysis -->
+        <mxCell id="openai_node" value="&lt;br/&gt;&lt;div style=&quot;font-size: 13px; font-weight: bold; color: #5B21B6;&quot;&gt;OpenAI API&lt;/div&gt;&lt;div style=&quot;font-size: 11px; color: #6D28D9; text-align: center;&quot;&gt;Contract Analysis Engine&lt;/div&gt;&lt;hr style=&quot;border:0.5px solid #DDD6FE;margin:4px 10px;&quot;/&gt;&lt;div style=&quot;font-size: 10px; color: #4C1D95; text-align: left; padding-left: 15px;&quot;&gt;• Clause Summarization&lt;br/&gt;• Risk Assessment&lt;br/&gt;• Fairness Analysis&lt;br/&gt;• AI Chat Assistant&lt;/div&gt;" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="320" width="200" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Box -->
+        <mxCell id="legend_box" value="&lt;div style=&quot;font-size: 13px; font-weight: bold; color: #0F172A; margin-bottom: 8px;&quot;&gt;Architecture Diagram Legend&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=2;shadow=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="440" width="385" height="250" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Item 1: Rectangle = Application Component -->
+        <mxCell id="legend_rect_shape" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;" vertex="1" parent="legend_box">
+          <mxGeometry x="15" y="40" width="35" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_rect_text" value="&lt;b style=&quot;color:#1E293B;&quot;&gt;Rectangle&lt;/b&gt; = Application Component" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#334155;" vertex="1" parent="legend_box">
+          <mxGeometry x="60" y="40" width="300" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Item 2: Cylinder = Database -->
+        <mxCell id="legend_cyl_shape" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=5;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;" vertex="1" parent="legend_box">
+          <mxGeometry x="18" y="85" width="28" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_cyl_text" value="&lt;b style=&quot;color:#1E293B;&quot;&gt;Cylinder&lt;/b&gt; = Database" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#334155;" vertex="1" parent="legend_box">
+          <mxGeometry x="60" y="90" width="300" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Item 3: Cloud = External Service / Deployment -->
+        <mxCell id="legend_cloud_shape" value="" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=2;" vertex="1" parent="legend_box">
+          <mxGeometry x="14" y="135" width="36" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_cloud_text" value="&lt;b style=&quot;color:#1E293B;&quot;&gt;Cloud&lt;/b&gt; = External Service / Deployment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#334155;" vertex="1" parent="legend_box">
+          <mxGeometry x="60" y="138" width="300" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Legend Item 4: Solid Arrow = Data Flow -->
+        <mxCell id="legend_arrow_edge" value="" style="edgeStyle=none;html=1;endArrow=classic;endSize=6;strokeColor=#334155;strokeWidth=2;" edge="1" parent="legend_box">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="15" y="195" as="sourcePoint" />
+            <mxPoint x="48" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend_arrow_text" value="&lt;b style=&quot;color:#1E293B;&quot;&gt;Solid Arrow&lt;/b&gt; = Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#334155;" vertex="1" parent="legend_box">
+          <mxGeometry x="60" y="184" width="300" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- DATA FLOW CONNECTIONS -->
+
+        <!-- Data Flow 1: User → Frontend -->
+        <mxCell id="flow_user_frontend" value="User Access" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=2;endArrow=classic;endSize=6;fontSize=11;fontColor=#334155;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="user_node" target="frontend_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow 2: Frontend → Backend using HTTPS REST API -->
+        <mxCell id="flow_frontend_backend" value="HTTPS REST API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=classic;endSize=6;fontSize=11;fontColor=#1D4ED8;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="frontend_node" target="backend_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow 3: Backend → Google OAuth for authentication -->
+        <mxCell id="flow_backend_google" value="OAuth Authentication" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=classic;endSize=6;fontSize=11;fontColor=#B91C1C;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="backend_node" target="google_oauth_node">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="270" />
+              <mxPoint x="880" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flow 4: Backend → OpenAI API for clause summarization, risk assessment, fairness analysis, and AI chat -->
+        <mxCell id="flow_backend_openai" value="Contract Analysis &amp;amp; AI Chat" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=classic;endSize=6;fontSize=11;fontColor=#6D28D9;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="backend_node" target="openai_node">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="330" />
+              <mxPoint x="880" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flow 5: Backend ↔ PostgreSQL Database for user accounts, contract history, and analysis results -->
+        <mxCell id="flow_backend_postgres" value="User Accounts, Contract History &amp;amp; Analysis Results" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;startArrow=classic;endArrow=classic;startSize=6;endSize=6;fontSize=11;fontColor=#92400E;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="cloud_deployment" source="docker_container" target="postgres_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
