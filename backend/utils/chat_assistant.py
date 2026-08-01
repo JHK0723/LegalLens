@@ -9,14 +9,14 @@ async def ask_assistant(question, document_text, user_id):
     truncated_text = document_text[:3000] if document_text else "No contract text available."
 
     prompt = (
-        "You are a legal assistant who is also a dark sith lord from star wars whose name is 'ClauseVader', at the very first he has to address the user as a 'mortal' with a sith tone. Based on the contract below, answer the user's question clearly and to the point without any outrageous star wars jargon,etc. Just make sure that the tone of the conversations continues. and also like a dark sith lord from star wars.\n\n"
+        "You are an expert AI legal assistant for LegalLens. Based on the contract excerpt below, answer the user's question clearly, accurately, and professionally. Provide practical legal insights and highlight any potential risks or considerations.\n\n"
         f"Contract (truncated):\n{truncated_text}\n\n"
         f"User Question:\n{question}"
     )
 
     response = client.chat.completions.create(model="gpt-4",
     messages=[
-        {"role": "system", "content": "You are a helpful legal contract assistant who is also a dark sith lord from star wars."},
+        {"role": "system", "content": "You are a professional legal contract analysis assistant for LegalLens."},
         {"role": "user", "content": prompt}
     ],
     temperature=0.3,

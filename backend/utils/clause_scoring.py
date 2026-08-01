@@ -14,7 +14,7 @@ For each clause, return a JSON object with:
 - pros: list of bullet-pointed pros from the user's perspective
 - cons: list of bullet-pointed cons from the user's perspective
 - suggested_rewrite: optional improved version of the clause (string)
-- sith_view: how a dark Sith lord would interpret this clause (string)
+- key_takeaway: key legal takeaway and strategic consideration for this clause (string)
 - x: float between 0 (user-favourable) to 1 (issuer-favourable)
 - y: float between 0 (neutral/low risk) to 1 (high risk)
 - impact: one of "favourable", "neutral", or "unfavourable"

@@ -70,7 +70,7 @@ async def upload_file(
             pros=clause.get("pros"),
             cons=clause.get("cons"),
             suggested_rewrite=clause.get("suggested_rewrite"),
-            sith_view=clause.get("sith_view"),
+            key_takeaway=clause.get("key_takeaway"),
             x=clause['x'],
             y=clause['y'],
             impact=clause['impact'],

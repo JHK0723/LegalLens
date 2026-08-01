@@ -50,7 +50,7 @@ class Clause(Base):
     pros = Column(JSON)
     cons = Column(JSON)
     suggested_rewrite = Column(Text)
-    sith_view = Column(Text)
+    key_takeaway = Column(Text)
     x = Column(Float)
     y = Column(Float)
     impact = Column(String)  # Keep raw string if enums are handled separately

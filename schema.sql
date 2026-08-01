@@ -33,7 +33,7 @@ CREATE TABLE clauses (
   pros JSONB,
   cons JSONB,
   suggested_rewrite TEXT,
-  sith_view TEXT,
+  key_takeaway TEXT,
   x FLOAT,
   y FLOAT,
   impact TEXT CHECK (impact IN ('favourable', 'neutral', 'unfavourable')),

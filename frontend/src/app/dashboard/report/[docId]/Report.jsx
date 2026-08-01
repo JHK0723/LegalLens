@@ -161,10 +161,12 @@ export default function Report({ clausesData }) {
                 <strong>Suggested Rewrite:</strong>
                 <div className="text-muted-foreground">{hoveredClause.suggested_rewrite}</div>
               </div>
-              <div>
-                <strong>Sith View:</strong>
-                <div className="italic text-muted-foreground">{hoveredClause.sith_view}</div>
-              </div>
+              { hoveredClause.key_takeaway && (
+                <div>
+                  <strong>Key Takeaway:</strong>
+                  <div className="text-muted-foreground">{hoveredClause.key_takeaway}</div>
+                </div>
+              )}
             </CardContent>
           </Card>
         ) : (

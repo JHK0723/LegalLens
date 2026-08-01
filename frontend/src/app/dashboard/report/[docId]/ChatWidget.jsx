@@ -25,7 +25,7 @@ export default function ChatWidget({ documentId, userId, user, history = [] }) {
 		setMessages(prev => [...prev, { from: 'user', text: userMessage }]);
 
 		let fullReply = '';
-		const evtSource = new EventSource(`https://clausevader-production.up.railway.app/api/chat/stream?document_id=${documentId}&message=${encodeURIComponent(userMessage)}&user_id=${userId}`);
+		const evtSource = new EventSource(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/chat/stream?document_id=${documentId}&message=${encodeURIComponent(userMessage)}&user_id=${userId}`);
 
 		evtSource.onmessage = (event) => {
 			if (event.data.startsWith('[Error]')) {
@@ -63,7 +63,7 @@ export default function ChatWidget({ documentId, userId, user, history = [] }) {
 	return (
             <div className="h-[80%] max-w-md bg-background border rounded-lg shadow-lg flex flex-col">
                 <div className="p-3 border-b flex justify-between items-center">
-                    <h2 className="text-lg font-semibold">Speak with the Shadows</h2>
+                    <h2 className="text-lg font-semibold flex items-center gap-2">🤖 Legal AI Assistant</h2>
                 </div>
 
                 <ScrollArea className="flex-1 p-3 space-y-6 overflow-y-auto text-sm">
