@@ -3,12 +3,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from uuid import uuid4, UUID
 
-from db import SessionLocal
-from models import User, Document, Clause, Chat, DocumentStatusEnum
+from db import SessionLocal, engine
+from models import Base, User, Document, Clause, Chat, DocumentStatusEnum
 from utils.extract_text import extract_text_from_file
 from utils.clause_scoring import analyze_clauses
-from utils.chat_assistant import ask_assistant  # <-- updated for streaming
+from utils.chat_assistant import ask_assistant
 
+# Ensure database tables exist
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Database init warning: {e}")
 
 app = FastAPI()
 

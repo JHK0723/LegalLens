@@ -3,9 +3,22 @@ import os
 import uuid
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = os.getenv("OPENAI_API_KEY") or "sk-dummy-key-for-testing-12345"
+client = OpenAI(api_key=api_key)
 
 def analyze_clauses(text, role="unsure"):
+    # Fallback to sample data for dummy keys or local Docker testing
+    current_key = os.getenv("OPENAI_API_KEY", "")
+    if not current_key or "dummy" in current_key or current_key == "your_openai_api_key_here":
+        try:
+            sample_path = os.path.join(os.path.dirname(__file__), "sample_ret.json")
+            with open(sample_path) as f:
+                sample_ret = json.load(f)
+                for clause in sample_ret["clause_graph"]:
+                    clause["id"] = str(uuid.uuid4())
+                return sample_ret
+        except Exception as e:
+            print(f"Sample fallback error: {e}")
     prompt = f"""
 You are a contract analysis AI. Extract key clauses from this contract and analyze them.
 
