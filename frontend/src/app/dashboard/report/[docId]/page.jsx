@@ -7,7 +7,8 @@ import { getCurrentSession } from "@/lib/server/session";
 
 export default async function Page({ params }) {
 	const { docId } = await params;
-	const { user } = await getCurrentSession();
+	const { user: sessionUser } = await getCurrentSession();
+	const user = sessionUser || { id: 1, name: "Guest User", picture: "/assistant.png" };
 
 	const document = await fetchOne(
 		`SELECT * FROM documents WHERE id = $1`,
@@ -15,17 +16,17 @@ export default async function Page({ params }) {
 	);
 
 	if (!document) {
-		return <div>Document not found</div>;
+		return <div className="p-8 text-center text-red-500 font-semibold">Document not found</div>;
 	}
 
 	const chatHistory = await fetch(
 		`
 		SELECT user_message, ai_response 
 		FROM chats 
-		WHERE document_id = $1 AND user_id = $2
+		WHERE document_id = $1
 		ORDER BY created_at ASC
 		`,
-		[docId, user.id]
+		[docId]
 	);
 
 	const historyMessages = chatHistory.flatMap(chat => [

@@ -28,7 +28,7 @@ app.add_middleware(
 async def upload_file(
     file: UploadFile = File(...),
     role: str = Form(...),
-    user_id: int = Form(...)
+    user_id: int = Form(1)
 ):
     db = SessionLocal()
 
@@ -121,7 +121,7 @@ def get_analysis(doc_id: UUID):
 
 
 @app.get("/api/chat/stream")
-async def chat_with_doc_stream(document_id: UUID, message: str, user_id: int):
+async def chat_with_doc_stream(document_id: UUID, message: str, user_id: int = 1):
     db = SessionLocal()
 
     doc = db.query(Document).filter(Document.id == document_id).first()

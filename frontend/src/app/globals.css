@@ -130,28 +130,6 @@
     opacity: 1;
   }
   100% {
-    transform: rotateX(25deg) translateY(0%);
     opacity: 1;
   }
-}
-
-.animate-crawl {
-  animation: crawl 10s ease-out forwards;
-  transform-origin: bottom center;
-}
-
-
-.crawl-container {
-  perspective: 300px;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.crawl-text {
-  transform-origin: 50% 100%;
-  transform: rotateX(20deg);
-  font-family: 'Open Sans', sans-serif;
-  text-align: justify;
 }
