@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legallens-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql://neondb_owner:npg_7fbgC5WyQYOj@ep-old-dew-a8wq8p6m-pooler.eastus2.azure.neon.tech/neondb?sslmode=require}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./backend:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: legallens-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - DATABASE_URL=${DATABASE_URL:-postgresql://neondb_owner:npg_7fbgC5WyQYOj@ep-old-dew-a8wq8p6m-pooler.eastus2.azure.neon.tech/neondb?sslmode=require}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-904463628974-387cctj37tg69h267rkdcq1vbmal17sd.apps.googleusercontent.com}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-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}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    restart: unless-stopped
