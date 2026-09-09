@@ -35,9 +35,39 @@
 
 ---
 
-## 📐 Architecture Overview
+## 📐 Architecture & Software Design
 
-See [LegalLens Architecture Diagram](LegalLens_Architecture.drawio) for complete system component data flows.
+### Summary of Main Design Choices
+LegalLens implements a modular Layered Client-Server Architecture pairing Next.js 15 (App Router) with an asynchronous FastAPI backend for high-cohesion and low-coupling operation. Real-time streaming via Server-Sent Events (SSE) delivers AI clause analysis and chat responses with sub-second latency, avoiding heavy HTTP polling. Interactive 2D scatterplot visual mapping ($x$-axis: Fairness, $y$-axis: Risk) grants users immediate situational awareness of contract safety, while Google OAuth 2.0 and SQLAlchemy ORM enforce clean security and data layer decoupling.
+
+---
+
+### High-Level System Architecture Diagram
+Editable Source Diagram: [`LegalLens_Architecture.drawio`](docs/design/LegalLens_Architecture.drawio)
+
+![LegalLens System Architecture Diagram](docs/design/LegalLens_Architecture.png)
+
+---
+
+### User Interface Design & Prototypes (Figma Screenshots)
+
+#### 1. Landing Page
+![Frame 1: Landing Page](docs/design/frame1_landing_page.png)
+
+#### 2. Authentication & Login Page
+![Frame 2: Login Page](docs/design/frame2_login_page.png)
+
+#### 3. User Dashboard
+![Frame 3: User Dashboard](docs/design/frame3_user_dashboard.png)
+
+#### 4. Contract Upload & Parsing Check
+![Frame 4: Contract Upload](docs/design/frame4_contract_upload.png)
+
+#### 5. Contract Analysis Dashboard (2D Risk vs. Fairness Scatterplot)
+![Frame 5: Contract Analysis Dashboard](docs/design/frame5_contract_analysis_dashboard.png)
+
+#### 6. Streaming AI Legal Assistant Dashboard
+![Frame 6: AI Legal Chat Assistant Dashboard](docs/design/frame6_ai_legal_chat_assistant.png)
 
 ---
 

@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="legallens-clean-architecture" name="LegalLens High-Level Architecture">
+    <mxGraphModel dx="1278" dy="728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#0F172A;" value="LegalLens – System Architecture Diagram" vertex="1">
+          <mxGeometry height="35" width="400" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#64748B;" value="High-Level Data Flow &amp; Infrastructure Overview" vertex="1">
+          <mxGeometry height="20" width="400" x="400" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="box_client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#F8FAFC;strokeColor=#94A3B8;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontSize=12;fontStyle=1;fontColor=#475569;" value="Client Layer" vertex="1">
+          <mxGeometry height="420" width="220" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="node_user" parent="box_client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#475569;strokeWidth=2;" value="&lt;b style=&quot;font-size:14px;color:#0F172A;&quot;&gt;End User&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:11px;color:#64748B;&quot;&gt;Web Browser&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="25" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="node_frontend" parent="box_client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=2;" value="&lt;b style=&quot;font-size:14px;color:#1E3A8A;&quot;&gt;React Frontend&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:11px;color:#2563EB;&quot;&gt;(Next.js 15 App Router)&lt;/span&gt;&lt;hr style=&quot;border:0.5px solid #BFDBFE;margin:8px 0;&quot;/&gt;&lt;div style=&quot;font-size:11px;color:#334155;text-align:left;&quot;&gt;• UI Dashboard &amp;amp; History&lt;br/&gt;• 2D Scatterplot Visualizer&lt;br/&gt;• Real-Time Streaming Chat&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="170" x="25" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="box_backend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#F0FDF4;strokeColor=#16A34A;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontSize=12;fontStyle=1;fontColor=#15803D;" value="Backend Services (Docker Container)" vertex="1">
+          <mxGeometry height="420" width="340" x="350" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="node_fastapi" parent="box_backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;strokeWidth=2;" value="&lt;b style=&quot;font-size:14px;color:#14532D;&quot;&gt;FastAPI Application Server&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:11px;color:#16A34A;&quot;&gt;(Python 3.11 Runtime / Uvicorn)&lt;/span&gt;&lt;hr style=&quot;border:0.5px solid #BBF7D0;margin:8px 0;&quot;/&gt;&lt;div style=&quot;font-size:11px;color:#1E293B;text-align:left;&quot;&gt;• OAuth Auth &amp;amp; Session Manager&lt;br/&gt;• Document Parser (PDF / DOCX)&lt;br/&gt;• AI Clause Scoring &amp;amp; Risk Engine&lt;br/&gt;• SSE Streaming Response Generator&lt;br/&gt;• Contract CRUD Data Services&lt;/div&gt;" vertex="1">
+          <mxGeometry height="340" width="290" x="25" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="node_postgres" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;" value="&lt;b style=&quot;font-size:14px;color:#78350F;&quot;&gt;PostgreSQL Database&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:11px;color:#92400E;&quot;&gt;(NeonDB Cloud Relational DB)&lt;/span&gt;&lt;hr style=&quot;border:0.5px solid #FDE68A;margin:6px 0;&quot;/&gt;&lt;div style=&quot;font-size:11px;color:#78350F;text-align:left;&quot;&gt;• User Accounts &amp;amp; OAuth Data&lt;br/&gt;• Contract Metadata &amp;amp; Clause JSON Scores&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="290" x="375" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="box_external" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#F5F3FF;strokeColor=#7C3AED;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;fontSize=12;fontStyle=1;fontColor=#6D28D9;" value="External SaaS Integrations" vertex="1">
+          <mxGeometry height="420" width="260" x="740" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="node_google" parent="box_external" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;" value="&lt;b style=&quot;font-size:13px;color:#991B1B;&quot;&gt;Google OAuth 2.0&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;color:#B91C1C;&quot;&gt;Identity Provider&lt;/span&gt;" vertex="1">
+          <mxGeometry height="130" width="210" x="25" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="node_openai" parent="box_external" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7C3AED;strokeWidth=2;" value="&lt;b style=&quot;font-size:13px;color:#5B21B6;&quot;&gt;OpenAI GPT-4 API&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;color:#6D28D9;&quot;&gt;Contract Intelligence Engine&lt;/span&gt;&lt;hr style=&quot;border:0.5px solid #DDD6FE;margin:6px 0;&quot;/&gt;&lt;div style=&quot;font-size:10px;color:#4C1D95;text-align:left;&quot;&gt;• Clause Summarization&lt;br/&gt;• Fairness &amp;amp; Risk Analysis&lt;br/&gt;• SSE Chat Completion Stream&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="210" x="25" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=12;spacingTop=8;" value="&lt;b style=&quot;font-size:11px;color:#0F172A;&quot;&gt;Architecture Data Flow Legend&lt;/b&gt;&lt;div style=&quot;font-size:10px;color:#475569;margin-top:4px;&quot;&gt;── HTTP/REST API Requests&lt;br/&gt;── SSE Streaming Response&lt;br/&gt;── Encrypted SQL / ORM Queries&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="80" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_user_fe" edge="1" parent="1" source="node_user" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#475569;fontStyle=1;" target="node_frontend" value="HTTPS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_fe_be" edge="1" parent="1" source="node_frontend" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563EB;strokeWidth=2;endArrow=classic;startArrow=classic;fontSize=10;fontColor=#1D4ED8;fontStyle=1;labelBackgroundColor=#FFFFFF;" target="node_fastapi" value="REST API &amp;amp; SSE Streaming">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_be_google" edge="1" parent="1" source="node_fastapi" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#DC2626;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#B91C1C;fontStyle=1;labelBackgroundColor=#FFFFFF;" target="node_google" value="OAuth 2.0 Auth">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="230" />
+              <mxPoint x="710" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_be_openai" edge="1" parent="1" source="node_fastapi" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7C3AED;strokeWidth=2;endArrow=classic;startArrow=classic;fontSize=10;fontColor=#6D28D9;fontStyle=1;labelBackgroundColor=#FFFFFF;" target="node_openai" value="Contract Analysis &amp;amp; Streaming">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="410" />
+              <mxPoint x="710" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_be_db" edge="1" parent="1" source="node_fastapi" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D97706;strokeWidth=2;endArrow=classic;startArrow=classic;fontSize=10;fontColor=#92400E;fontStyle=1;labelBackgroundColor=#FFFFFF;" target="node_postgres" value="SQL SQLAlchemy ORM">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
